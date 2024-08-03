@@ -324,6 +324,10 @@ export class QueryEditorRow<TQuery extends DataQuery> extends PureComponent<Prop
     }
   };
 
+  onBoostQuery = () => {
+    console.log('BOOST');
+  };
+
   onRemoveQuery = () => {
     const { onRemoveQuery, query, onQueryRemoved } = this.props;
     onRemoveQuery(query);
@@ -462,6 +466,11 @@ export class QueryEditorRow<TQuery extends DataQuery> extends PureComponent<Prop
 
     return (
       <>
+        <QueryOperationAction
+          title={t('query-operation.header.boost-query', 'Boost query')}
+          icon="bolt"
+          onClick={this.onBoostQuery}
+        />
         {hasEditorHelp && (
           <QueryOperationToggleAction
             title={t('query-operation.header.datasource-help', 'Show data source help')}
